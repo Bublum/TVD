@@ -15,6 +15,8 @@ def homepage(request):
 
         return render(request, 'html/video_chooser.html', {'all_input': all_input})
 
+    if request.method == 'POST':
+        video_id = request.POST.get('video_id')
 
 def violation(request):
     return render(request, 'html/violation_chooser.html')
