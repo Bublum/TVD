@@ -39,8 +39,6 @@ class ViolationMaster(models.Model):
     is_active = models.BooleanField(default=True)
 
 
-
-
 class VehicleViolation(models.Model):
     vehicle = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
     camera = models.ForeignKey(Camera, on_delete=models.CASCADE)
@@ -52,6 +50,6 @@ class VehicleViolation(models.Model):
 
 class Config(models.Model):
     model = models.FileField(max_length=1000)
-    fps = models.DecimalField()
-    min_threshold = models.DecimalField()
+    fps = models.DecimalField(max_digits=7, decimal_places=3)
+    min_threshold = models.DecimalField(max_digits=7, decimal_places=3)
     max_predict_class = models.PositiveIntegerField()

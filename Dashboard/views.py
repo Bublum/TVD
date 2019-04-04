@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from Detection.models import Input
+from Dashboard.models import Input
 
 
 def homepage(request):

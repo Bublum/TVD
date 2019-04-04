@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Dashboard.apps.DashboardConfig',
-    'Detection.apps.DetectionConfig',
 ]
 
 MIDDLEWARE = [
