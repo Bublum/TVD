@@ -14,3 +14,6 @@ def homepage(request):
         #     input_json[each_input.name] = each_input.file.path
 
         return render(request, 'html/video_chooser.html', {'all_input': all_input})
+
+    if request.method == 'POST':
+        video_id = request.POST.get('video_id')
