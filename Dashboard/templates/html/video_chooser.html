@@ -1,16 +1,50 @@
 {% extends 'dashboard_base.html' %}
-{% block content %}
+{% block style %}
+    <style>
 
+    </style>
+{% endblock style %}
+{% block content %}
+<br>
     <div class="row">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-8 offset-md-2">
             <div class="card text-center">
                 <div class="card-header">
                     <h3 class="card-title">Select Video</h3>
                 </div>
                 <div class="card-body">
+                    <form action="{% url 'detection:homepage' %}" method="post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="radio" name="group1" id="r1" value="1"/>
+                                <label for="r1">
+                                    <video width="100%" controls="controls">
+                                        <source src="/1.mp4" type="video/mp4">
+                                    </video>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" name="group1" id="r1" value="1"/>
+                                <label for="r1">
+                                    <video width="100%" controls>
+                                        <source src="/1.mp4" type="video/mp4">
+                                    </video>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" name="group1" id="r1" value="1"/>
+                                <label for="r1">
+                                    <video width="100%" controls>
+                                        <source src="/1.mp4" type="video/mp4">
+                                    </video>
+                                </label>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
 
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
+{#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
                 </div>
             </div>
         </div>
