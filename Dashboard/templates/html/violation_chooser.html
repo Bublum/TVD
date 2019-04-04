@@ -5,7 +5,7 @@
     </style>
 {% endblock style %}
 {% block content %}
-<br>
+    <br>
     <div class="row">
         <div class="col-md-4 offset-md-1">
             <div class="card text-center">
@@ -13,10 +13,14 @@
                     <h3 class="card-title">Select Violation</h3>
                 </div>
                 <div class="card-body">
+                    {% for i in violation_objs %}
+                        <input type="radio" name="violation" value="{{ i.pk }}" id="violation_{{ id.pk }}">
+                        <label for="violation_{{ id.pk }}">{{ i.name }}</label>
+                    {% endfor %}
 
 
-{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-{#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+                    {#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
+                    {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
                 </div>
             </div>
         </div>
@@ -25,11 +29,10 @@
                 <div class="card-header">
                     <h3 class="card-title">Select Model</h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="model_card">
 
 
-{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-{#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+                    <p class="card-text">Select any model first!</p>
                 </div>
             </div>
         </div>

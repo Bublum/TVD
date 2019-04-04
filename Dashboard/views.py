@@ -20,7 +20,7 @@ def homepage(request):
         input = Input.objects.get(id=video_id)
         detection_objs = Detection.objects.filter(is_active=True)
         violations = ViolationMaster.objects.filter(is_active=True)
-        return render(request, 'violation_chooser.html', {'violation_objs': violations, 'detection_objs':detection_objs})
+        return render(request, 'html/violation_chooser.html', {'violation_objs': violations, 'detection_objs':detection_objs})
 
 
 def violation(request):
