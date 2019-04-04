@@ -9,7 +9,7 @@ class VehicleDetection(models.Model):
     mobile = models.PositiveIntegerField(default='8554951545')
     address = models.CharField(max_length=250, default='test')
     type = models.CharField(max_length=100)
-    image_path = models.CharField(max_length=500)
+    image = models.FileField(max_length=1000)
     is_done = models.BooleanField(default=False)
 
 
@@ -21,7 +21,7 @@ class Camera(models.Model):
 
 
 class Input(models.Model):
-    path = models.CharField(max_length=1000)
+    file = models.FileField(max_length=1000)
     name = models.CharField(max_length=200, unique=True)
     file_type = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
