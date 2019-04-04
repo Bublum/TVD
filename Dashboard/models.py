@@ -6,8 +6,10 @@ from django.db import models
 class Detection(models.Model):
     model_type = models.CharField(max_length=100)
     model_path = models.FileField(max_length=1000)
+    label_path = models.FileField(max_length=1000)
     model_name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
+
 
 
 class VehicleDetection(models.Model):
@@ -34,10 +36,15 @@ class Input(models.Model):
 
 
 class ViolationMaster(models.Model):
-    description = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=500)
     fine_amount = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
+
+# class ViolationDetection(models.Model):
+#     detection = models.ForeignKey(Detection, on_delete=models.CASCADE)
+#     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
 
 class VehicleViolation(models.Model):
     vehicle = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)

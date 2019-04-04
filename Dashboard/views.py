@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from Dashboard.models import Input
+from Dashboard.models import Input, Detection, ViolationMaster
 
 
 def homepage(request):
@@ -17,6 +17,12 @@ def homepage(request):
 
     if request.method == 'POST':
         video_id = request.POST.get('video_id')
+        input = Input.objects.get(id=video_id)
+        detection_objs = Detection.objects.filter(is_active=True)
+        violations = ViolationMaster.objects.filter(is_active=True)
+        return render(request, 'html/violation_chooser.html', {'violation_objs': violations, 'detection_objs':detection_objs})
+
 
 def violation(request):
+
     return render(request, 'html/violation_chooser.html')
