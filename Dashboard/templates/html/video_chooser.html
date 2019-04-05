@@ -5,7 +5,7 @@
     </style>
 {% endblock style %}
 {% block content %}
-<br>
+    <br>
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="card text-center">
@@ -14,37 +14,24 @@
                 </div>
                 <div class="card-body">
                     <form action="{% url 'detection:homepage' %}" method="post">
+                    {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-4">
-                                <input type="radio" name="video_id" id="r1" value="1"/>
-                                <label for="r1">
-                                    <video width="100%" controls="controls">
-                                        <source src="/1.mp4" type="video/mp4">
-                                    </video>
-                                </label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="radio" name="video_id" id="r1" value="1"/>
-                                <label for="r1">
-                                    <video width="100%" controls>
-                                        <source src="/1.mp4" type="video/mp4">
-                                    </video>
-                                </label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="radio" name="video_id" id="r1" value="1"/>
-                                <label for="r1">
-                                    <video width="100%" controls>
-                                        <source src="/1.mp4" type="video/mp4">
-                                    </video>
-                                </label>
-                            </div>
+                            {% for i in all_input %}
+                                <div class="col-md-4">
+                                    <input type="radio" name="video_id" id="video_{{ i.pk }}" value="{{ i.pk }}"/>
+                                    <label for="r1">
+                                        <video width="100%" controls="controls">
+                                            <source src="{{ i.file }}" type="video/mp4">
+                                        </video>
+                                    </label>
+                                </div>
+                            {% endfor %}
                         </div>
                         <input type="submit" class="btn btn-primary">
                     </form>
 
-{#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-{#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
+                    {#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
+                    {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
                 </div>
             </div>
         </div>
