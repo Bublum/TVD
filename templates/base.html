@@ -10,11 +10,27 @@
           maximum-scale=1.0,
           minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}TVD{% endblock title %}</title>
+    <title>{% block title %}Traffic Rules Violation Detection{% endblock title %}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css"/>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-amber.min.css"/>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
     <style>
         {#        Scroll bar pretty#}
@@ -103,15 +119,12 @@
     <header class="mdl-layout__header transparent">
         <div class="mdl-layout__header-row">
             {#                                <i class="material-icons custom-icon">cloud</i>#}
-            <img src="{% static 'img/ptc_logo.svg.png' %}"
-                 alt="" width="50" height="50" class="custom-icon">
-            <span class="mdl-layout-title">Traffic violation detection tool</span>
+            {#            <img src="{% static 'img/ptc_logo.svg.png' %}"#}
+            {#                 alt="" width="50" height="50" class="custom-icon">#}
+            <span class="mdl-layout-title"><strong>Traffic Rules Violation Detection</strong></span>
             <div class="mdl-layout-spacer"></div>
             <nav class="mdl-navigation navbar-navigation">
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
-                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Login</a>
             </nav>
         </div>
     </header>
@@ -120,7 +133,7 @@
     {% block dashboard %}
     {% endblock dashboard %}
     <main class="mdl-layout__content">
-        <div class="page-content">
+        <div class="page-content container  ">
             <div class="margin-top-sm"></div>
             {% block content %}{% endblock content %}
         </div>
