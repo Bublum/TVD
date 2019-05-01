@@ -27,7 +27,6 @@ class Camera(models.Model):
     serial_number = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
-
 class Input(models.Model):
     file = models.FileField(max_length=1000)
     name = models.CharField(max_length=200, unique=True)
