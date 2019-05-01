@@ -16,7 +16,7 @@ class VehicleDetection(models.Model):
     mobile = models.PositiveIntegerField(default='8554951545')
     address = models.CharField(max_length=250, default='test')
     type = models.CharField(max_length=100)
-    image = models.FileField(max_length=1000)
+    image = models.FileField(max_length=1000, upload_to='')
     is_done = models.BooleanField(default=False)
 
 
