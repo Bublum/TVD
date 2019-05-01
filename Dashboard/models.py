@@ -2,7 +2,9 @@ from django.db import models
 
 
 def vehicle_detection_directory(instance, filename):
-    return 'Media/Vehicle/{0}/Research/{1}'.format(instance.faculty.faculty_code, filename)
+    return 'Media/Vehicle/{0}/{1}'.format(instance.vehicle_type.vehicle_type, filename)
+def vehicle_monitor_directory(instance, filename):
+    return 'Media/Vehicle/{0}/{1}'.format(instance.number, filename)
 
 
 class Model(models.Model):
@@ -23,7 +25,7 @@ class VehicleMonitor(models.Model):
     mobile = models.PositiveIntegerField(default='8554951545')
     address = models.CharField(max_length=250, default='test')
     vehicel_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
-    image = models.FileField(max_length=1000)
+    image = models.FileField(max_length=1000, upload_to=vehicle_monitor_directory)
     is_done = models.BooleanField(default=False)
 
 
@@ -70,6 +72,6 @@ class Config(models.Model):
 
 
 class VehicleDetection(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(upload_to=vehicle_detection_directory)
     vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     location = models.ForeignKey(Camera, on_delete=models.CASCADE)
