@@ -1,21 +1,28 @@
 from django.db import models
 
 
-# Create your models here.
+def vehicle_detection_directory(instance, filename):
+    return 'Media/Vehicle/{0}/Research/{1}'.format(instance.faculty.faculty_code, filename)
 
-class Detection(models.Model):
+
+class Model(models.Model):
     model_type = models.CharField(max_length=100)
-    model_path = models.FileField(max_length=1000)
-    label_path = models.FileField(max_length=1000)
+    model = models.FileField(max_length=1000)
+    label = models.FileField(max_length=1000)
     model_name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
 
-class VehicleDetection(models.Model):
+class VehicleTypeMaster(models.Model):
+    vehicle_type = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=True)
+
+
+class VehicleMonitor(models.Model):
     number = models.CharField(max_length=15, null=True, blank=True)
     mobile = models.PositiveIntegerField(default='8554951545')
     address = models.CharField(max_length=250, default='test')
-    type = models.CharField(max_length=100)
+    vehicel_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     image = models.FileField(max_length=1000)
     is_done = models.BooleanField(default=False)
 
@@ -33,7 +40,7 @@ class Input(models.Model):
     file_type = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     is_processed = models.BooleanField(default=False)
-
+    location = models.ForeignKey(Camera, on_delete=models.CASCADE)
 
 class ViolationMaster(models.Model):
     name = models.CharField(max_length=100)
@@ -47,7 +54,7 @@ class ViolationMaster(models.Model):
 #     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
 
 class VehicleViolation(models.Model):
-    vehicle = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
+    vehicle = models.ForeignKey(VehicleMonitor, on_delete=models.CASCADE)
     camera = models.ForeignKey(Camera, on_delete=models.CASCADE)
     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
     timestamp = models.DateTimeField()
@@ -60,3 +67,9 @@ class Config(models.Model):
     fps = models.DecimalField(max_digits=7, decimal_places=3)
     min_threshold = models.DecimalField(max_digits=7, decimal_places=3)
     max_predict_class = models.PositiveIntegerField()
+
+
+class VehicleDetection(models.Model):
+    image = models.ImageField()
+    vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
+    location = models.ForeignKey(Camera, on_delete=models.CASCADE)
