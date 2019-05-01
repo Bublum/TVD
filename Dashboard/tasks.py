@@ -19,7 +19,6 @@ def vehicle_detection(x, y):
     detection_obj = Detection.objects.get(pk=detection_id)
     all_input = Input.objects.filter(is_processed=False)
 
-    for each in all_input:
-
-        model_path = input_obj.model.path
+    for each_input in all_input:
+        model_path = each_input.file.path
     return x + y
