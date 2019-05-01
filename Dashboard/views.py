@@ -13,7 +13,7 @@ def homepage(request):
         input_json = {}
 
         for each_input in all_input:
-            input_json[each_input.name] = each_input.file.path
+            input_json[each_input.name] = each_input.model.path
 
         return render(request, 'html/video_chooser.html', {'all_input': all_input})
 
@@ -22,19 +22,20 @@ def homepage(request):
         input = Input.objects.get(id=video_id)
         detection_objs = Detection.objects.filter(is_active=True)
         violations = ViolationMaster.objects.filter(is_active=True)
-        return render(request, 'html/violation_chooser.html', {'violation_objs': violations, 'detection_objs':detection_objs})
+        return render(request, 'html/violation_chooser.html',
+                      {'violation_objs': violations, 'detection_objs': detection_objs})
 
 
 def violation(request):
-
     return render(request, 'html/violation_chooser.html')
+
 
 def start_prediction(request):
     # Load graph
     detection_graph = tf.Graph()
 
-    detection_id = int(request.session.get('detection_id'))
-    input_id = int(request.session.get('video_id'))
+    # detection_id = int(request.session.get('detection_id'))
+    # input_id = int(request.session.get('video_id'))
 
     detection_obj = Detection.objects.get(pk=detection_id)
     input_obj = Input.objects.get(pk=input_id)
