@@ -28,7 +28,7 @@ class Camera(models.Model):
     is_active = models.BooleanField(default=True)
 
 class Input(models.Model):
-    file = models.FileField(max_length=1000)
+    model = models.FileField(max_length=1000)
     name = models.CharField(max_length=200, unique=True)
     file_type = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
