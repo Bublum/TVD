@@ -11,7 +11,6 @@ class Detection(models.Model):
     is_active = models.BooleanField(default=True)
 
 
-
 class VehicleDetection(models.Model):
     number = models.CharField(max_length=15, null=True, blank=True)
     mobile = models.PositiveIntegerField(default='8554951545')
@@ -27,11 +26,13 @@ class Camera(models.Model):
     serial_number = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
+
 class Input(models.Model):
-    model = models.FileField(max_length=1000)
+    file = models.FileField(max_length=1000)
     name = models.CharField(max_length=200, unique=True)
     file_type = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
+    is_processed = models.BooleanField(default=False)
 
 
 class ViolationMaster(models.Model):
