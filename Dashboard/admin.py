@@ -4,9 +4,10 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(VehicleDetection)
-admin.site.register(Detection)
+admin.site.register(Model)
 admin.site.register(Input)
 admin.site.register(ViolationMaster)
 admin.site.register(Camera)
 admin.site.register(VehicleViolation)
 admin.site.register(Config)
+admin.site.register(VehicleTypeMaster)

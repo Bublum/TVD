@@ -3,16 +3,17 @@ import datetime
 from django.shortcuts import render
 
 # Create your views here.
-from Dashboard.models import Input, Detection, ViolationMaster, VehicleViolation
+from Dashboard.models import Input, Model, ViolationMaster
 import tensorflow as tf
 import cv2
 
-from Dashboard.tasks import add
+from Dashboard.tasks import add, vehicle_detection
 
 
 def homepage(request):
     if request.method == 'GET':
-        # add.delay(7, 5)
+        # vehicle_detection.delay()
+        vehicle_detection.apply_async(queue='feed_tasks')
         # all_input = Input.objects.filter(is_active=True)
         #
         # input_json = {}
@@ -25,7 +26,7 @@ def homepage(request):
     if request.method == 'POST':
         video_id = request.POST.get('video_id')
         input = Input.objects.get(id=video_id)
-        detection_objs = Detection.objects.filter(is_active=True)
+        detection_objs = Model.objects.filter(is_active=True)
         violations = ViolationMaster.objects.filter(is_active=True)
         return render(request, 'html/violation_chooser.html',
                       {'violation_objs': violations, 'detection_objs': detection_objs})
