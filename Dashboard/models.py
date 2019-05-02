@@ -2,15 +2,29 @@ from django.db import models
 
 
 def vehicle_detection_directory(instance, filename):
-    return 'Media/Vehicle/{0}/{1}'.format(instance.vehicle_type.vehicle_type, filename)
+    return 'Vehicle/{0}/{1}.png'.format(instance.vehicle_type.vehicle_type, filename)
+
+
 def vehicle_monitor_directory(instance, filename):
-    return 'Media/Vehicle/{0}/{1}'.format(instance.number, filename)
+    return 'Vehicle/{0}/{1}'.format(instance.number, filename)
+
+
+def model_directory(instance, filename):
+    return 'Model/{0}/{1}'.format(instance.model_type, filename)
+
+
+def label_directory(instance, filename):
+    return 'Label/{0}/{1}'.format(instance.model_type, filename)
+
+
+def input_video_directory(instance, filename):
+    return 'Input/{0}'.format(filename)
 
 
 class Model(models.Model):
     model_type = models.CharField(max_length=100)
-    model = models.FileField(max_length=1000)
-    label = models.FileField(max_length=1000)
+    model = models.FileField(max_length=1000, upload_to=model_directory)
+    label = models.FileField(max_length=1000, upload_to=label_directory)
     model_name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
@@ -37,12 +51,13 @@ class Camera(models.Model):
 
 
 class Input(models.Model):
-    file = models.FileField(max_length=1000)
+    file = models.FileField(max_length=1000, upload_to=input_video_directory)
     name = models.CharField(max_length=200, unique=True)
     file_type = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     is_processed = models.BooleanField(default=False)
     location = models.ForeignKey(Camera, on_delete=models.CASCADE)
+
 
 class ViolationMaster(models.Model):
     name = models.CharField(max_length=100)
@@ -72,6 +87,6 @@ class Config(models.Model):
 
 
 class VehicleDetection(models.Model):
-    image = models.ImageField(upload_to=vehicle_detection_directory)
+    image = models.FileField(upload_to=vehicle_detection_directory)
     vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
-    location = models.ForeignKey(Camera, on_delete=models.CASCADE)
+    location = models.ForeignKey(Camera, on_delete=models.CASCADE, null=True)

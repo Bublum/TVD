@@ -7,6 +7,9 @@ from celery import Celery, shared_task
 # from Dashboard.models import Input, Detection
 import tensorflow as tf
 import numpy as np
+from django.core.files import File
+from django.core.files.images import ImageFile
+from django.forms import FileField
 
 from Dashboard.config import maximum_classes_to_detect, min_score_thresh, categories_to_detect
 from Dashboard.models import Model, Input, VehicleTypeMaster, VehicleDetection
@@ -25,14 +28,14 @@ def add(x, y):
 
 
 @app.task
-def vehicle_detection(x, y):
+def vehicle_detection():
     # Load graph
     detection_graph = tf.Graph()
 
-    detection_obj = Detection.objects.get(model_name='Vehicle')
-    model_path = detection_obj.model_path
+    detection_obj = Model.objects.get(model_type='Vehicle')
+    model_path = detection_obj.model.path
     all_input = Input.objects.filter(is_processed=False)
-    model_label = detection_obj.label_path
+    model_label = detection_obj.label.path
 
     with detection_graph.as_default():
         od_graph_def = tf.GraphDef()
@@ -57,11 +60,16 @@ def vehicle_detection(x, y):
                                                                     max_num_classes=maximum_classes_to_detect,
                                                                     use_display_name=True)
         category_index = label_map_util.create_category_index(categories)
-
+        # total_frames = count_frames_manual(cap)
         with detection_graph.as_default():
             with tf.Session() as sess:
-                for each_frame in count_frames_manual(cap):
+                for each_frame in range(length):
                     rev, image_np = cap.read()
+                    img = Image.fromarray(image_np, 'RGB')
+                    # img.save('my.png')
+                    # img.show()
+                    # cv2.imshow('test', image_np)
+
                     # the array based representation of the image will be used later in order to prepare the
                     # result image with boxes and labels on it.
                     # Expand dimensions since the Prediction expects images to have shape: [1, None, None, 3]
@@ -111,11 +119,14 @@ def vehicle_detection(x, y):
                     image_np_copy = copy.deepcopy(image_np)
 
                     num_detected_vehicles = output_dict['num_detections']
-
+                    # print(num_detected_vehicles)
                     for i in range(num_detected_vehicles):
-
+                        # print(output_dict)
                         if output_dict['detection_scores'][i] >= min_score_thresh:
-                            class_name = category_index[output_dict['detection_classes'][i]]['name']
+                            try:
+                                class_name = category_index[output_dict['detection_classes'][i]]['name']
+                            except:
+                                continue
                             if class_name in categories_to_detect:
                                 coord = output_dict['detection_boxes'][i]
                                 y1, x1, y2, x2 = coord[0], coord[1], coord[2], coord[3]
@@ -123,9 +134,15 @@ def vehicle_detection(x, y):
                                 y2 = int(y2 * image_np.shape[0])
                                 x1 = int(x1 * image_np.shape[1])
                                 x2 = int(x2 * image_np.shape[1])
+                                print(x1, x2, y1, y2)
                                 cropped_img = image_np[y1:y2, x1:x2]
                                 class_obj = VehicleTypeMaster.objects.get(vehicle_type=class_name)
                                 rescaled = np.uint8(cropped_img)
-                                im = Image.fromarray(rescaled)
-                                VehicleDetection.objects.create(vehicle_type=class_obj, image=im)
+                                im = (Image.fromarray(rescaled, 'RGB'))
+                                # cv2.imshow('test', cv2.resize(image_np_copy, (800, 600)))
+                                # im.show()
+                                img.save('my.png')
+                                v = VehicleDetection(vehicle_type=class_obj)
+                                v.image.save('aaaa', File(open('my.png', 'rb')))
+                                v.save()
     return True

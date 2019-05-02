@@ -2,4 +2,4 @@ celery
 tensorflow
 numpy
 django_celery_results
-
+django

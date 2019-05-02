@@ -5,12 +5,13 @@ from Dashboard.models import Input, Model, ViolationMaster
 import tensorflow as tf
 import cv2
 
-from Dashboard.tasks import add
+from Dashboard.tasks import add, vehicle_detection
 
 
 def homepage(request):
     if request.method == 'GET':
-        # add.delay(7, 5)
+        # vehicle_detection.delay()
+        vehicle_detection.apply_async(queue='feed_tasks')
         # all_input = Input.objects.filter(is_active=True)
         #
         # input_json = {}
