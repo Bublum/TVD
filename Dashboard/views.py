@@ -11,7 +11,10 @@ from Dashboard.tasks import add, vehicle_detection
 def homepage(request):
     if request.method == 'GET':
         # vehicle_detection.delay()
-        vehicle_detection.apply_async(queue='feed_tasks')
+        all_input = Input.objects.filter(is_processed=False)
+        for each_input in all_input:
+            vehicle_detection.apply_async(args=[str(each_input.pk)], queue='feed_tasks')
+
         # all_input = Input.objects.filter(is_active=True)
         #
         # input_json = {}

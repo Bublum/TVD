@@ -1,5 +1,5 @@
 celery
-tensorflow
+tensorflow-gpu
 numpy
 django_celery_results
 django
