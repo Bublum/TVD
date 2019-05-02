@@ -3,7 +3,7 @@ import datetime
 from django.shortcuts import render
 
 # Create your views here.
-from Dashboard.models import Input, Model, ViolationMaster
+from Dashboard.models import Input, Model, ViolationMaster, VehicleViolation
 import tensorflow as tf
 import cv2
 
