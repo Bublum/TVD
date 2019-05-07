@@ -142,7 +142,7 @@ def vehicle_detection(id):
                             x2 = int(x2 * image_np.shape[1])
                             # print(x1, x2, y1, y2)
                             cropped_img = image_np[y1:y2, x1:x2]
-                            class_obj = VehicleTypeMaster.objects.get(vehicle_type=class_name)
+                            class_obj = VehicleTypeMaster.objects.get(type=class_name)
                             rescaled = np.uint8(cropped_img)
                             im = (Image.fromarray(rescaled, 'RGB'))
                             # cv2.imshow('test', cv2.resize(image_np_copy, (800, 600)))
