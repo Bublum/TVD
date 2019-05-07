@@ -1,5 +1,6 @@
 import datetime
 
+from django.http import JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -65,6 +66,7 @@ def daywise(request):
                 'violations': violations
             })
 
+
 @csrf_exempt
 def monitoring(request):
     if request.method == 'GET':
@@ -73,5 +75,8 @@ def monitoring(request):
         if request.is_ajax():
             selected_date = datetime.datetime.strptime(request.POST.get('selected_date'), '%d-%m-%Y').date()
             vehicle_number = request.POST.get('vehicle_number')
-            results = VehicleMonitor.objects.filter(n)
-
+            start_timestamp = datetime.datetime.combine(selected_date, datetime.time.min)
+            end_timestamp = datetime.datetime.combine(selected_date, datetime.time.max)
+            results = VehicleMonitor.objects.filter(timestamp__range=(start_timestamp, end_timestamp),
+                                                    number_detection__number_plate__number__contains=vehicle_number)
+            return JsonResponse(results)

@@ -6,7 +6,7 @@ def vehicle_detection_directory(instance, filename):
 
 
 def vehicle_monitor_directory(instance, filename):
-    return 'Vehicle/{0}/{1}'.format(instance.number, filename)
+    return 'Vehicle/{0}/{1}'.format(instance.number_detection.number_plate, filename)
 
 
 def model_directory(instance, filename):
@@ -74,7 +74,7 @@ class NumberPlateDetection(models.Model):
     vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.number_plate
+        return str(self.number_plate)
 
 
 class Input(models.Model):
