@@ -84,17 +84,20 @@ class Input(models.Model):
     is_processed = models.BooleanField(default=False)
     location = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
 
-
+    def __str__(self):
+        return self.name
 
 
 class VehicleMonitor(models.Model):
-    number = models.CharField(max_length=15, null=True, blank=True)
+    number_detection = models.ForeignKey(NumberPlateDetection, on_delete=models.CASCADE)
     mobile = models.PositiveIntegerField(default='8554951545')
-    address = models.CharField(max_length=250, default='test')
-    vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
+    # address = models.CharField(max_length=250, default='test')
+    # vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     image = models.FileField(max_length=1000, upload_to=vehicle_monitor_directory)
     is_done = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.number_detection
 
 # class ViolationDetection(models.Model):
 #     detection = models.ForeignKey(Detection, on_delete=models.CASCADE)
