@@ -91,3 +91,9 @@ class VehicleDetection(models.Model):
     vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     location = models.ForeignKey(Camera, on_delete=models.CASCADE, null=True)
     is_processed = models.BooleanField(default=False)
+
+
+class NumberPlateDetection(models.Model):
+    image = models.FileField(upload_to=vehicle_detection_directory)
+    is_processed = models.BooleanField(default=False)
+    vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)

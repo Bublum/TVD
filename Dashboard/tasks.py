@@ -13,7 +13,7 @@ from django.core.files.images import ImageFile
 from django.forms import FileField
 
 from Dashboard.config import maximum_classes_to_detect, min_score_thresh, categories_to_detect, dps
-from Dashboard.models import Model, Input, VehicleTypeMaster, VehicleDetection
+from Dashboard.models import Model, Input, VehicleTypeMaster, VehicleDetection, NumberPlateDetection
 from object_detection.functions import count_frames_manual, load_image_into_numpy_array
 from object_detection.ops import reframe_box_masks_to_image_masks
 from object_detection.utils import label_map_util
@@ -27,6 +27,7 @@ def add(x, y):
         print(i)
     return x + y
 
+
 def load_graph(model_path):
     detection_graph = tf.Graph()
     with detection_graph.as_default():
@@ -39,10 +40,8 @@ def load_graph(model_path):
     return detection_graph
 
 
-
 @app.task
 def vehicle_detection(id):
-
     detection_obj = Model.objects.get(model_type='Vehicle', is_active=True)
 
     model_path = detection_obj.model.path
@@ -73,7 +72,6 @@ def vehicle_detection(id):
             for each_frame in range(math.ceil(length / dps)):
                 print(each_frame)
                 rev, image_np = cap.read()
-                img = Image.fromarray(image_np, 'RGB')
                 # img.save('my.png')
                 # img.show()
                 # cv2.imshow('test', image_np)
@@ -149,6 +147,8 @@ def vehicle_detection(id):
                             im = (Image.fromarray(rescaled, 'RGB'))
                             # cv2.imshow('test', cv2.resize(image_np_copy, (800, 600)))
                             # im.show()
+                            img = Image.fromarray(cropped_img, 'RGB')
+
                             img.save('my.png')
                             v = VehicleDetection(vehicle_type=class_obj)
                             v.image.save('aaaa', File(open('my.png', 'rb')))
@@ -169,22 +169,22 @@ def number_plate_detection():
     all_input = VehicleDetection.objects.filter(is_processed=False)
     model_label = detection_obj.label.path
 
-    for each_input in all_input:
-        image_path = each_input.image.path
-        # cap = cv2.imread()
+    with detection_graph.as_default():
+        with tf.Session() as sess:
+            for each_input in all_input:
+                image_path = each_input.image.path
+                # cap = cv2.imread()
+                print(image_path)
+                image = Image.open(image_path)
+                image_np = load_image_into_numpy_array(image)
 
-        image = Image.open(image_path)
-        image_np = load_image_into_numpy_array(image)
+                label_map = label_map_util.load_labelmap(model_label)
+                categories = label_map_util.convert_label_map_to_categories(label_map,
+                                                                            max_num_classes=maximum_classes_to_detect,
+                                                                            use_display_name=True)
+                category_index = label_map_util.create_category_index(categories)
+                # total_frames = count_frames_manual(cap)
 
-        label_map = label_map_util.load_labelmap(model_label)
-        categories = label_map_util.convert_label_map_to_categories(label_map,
-                                                                    max_num_classes=maximum_classes_to_detect,
-                                                                    use_display_name=True)
-        category_index = label_map_util.create_category_index(categories)
-        # total_frames = count_frames_manual(cap)
-        with detection_graph.as_default():
-            with tf.Session() as sess:
-                img = Image.fromarray(image_np, 'RGB')
                 # the array based representation of the image will be used later in order to prepare the
                 # result image with boxes and labels on it.
                 # Expand dimensions since the Prediction expects images to have shape: [1, None, None, 3]
@@ -253,9 +253,10 @@ def number_plate_detection():
                             cropped_img = image_np[y1:y2, x1:x2]
                             class_obj = VehicleTypeMaster.objects.get(vehicle_type=class_name)
                             rescaled = np.uint8(cropped_img)
-                            im = (Image.fromarray(rescaled, 'RGB'))
+                            # im = (Image.fromarray(rescaled, 'RGB'))
                             # cv2.imshow('test', cv2.resize(image_np_copy, (800, 600)))
                             # im.show()
+                            img = Image.fromarray(cropped_img, 'RGB')
                             img.save('my.png')
                             v = NumberPlateDetection(vehicle_detection=each_input)
                             v.image.save('aaaa', File(open('my.png', 'rb')))
