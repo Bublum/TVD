@@ -97,7 +97,7 @@ class VehicleViolation(models.Model):
     timestamp = models.DateTimeField()
     has_paid = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    is_done = models.BooleanField(default=False)
+    is_processed = models.BooleanField(default=False)
 
 
 class Config(models.Model):
