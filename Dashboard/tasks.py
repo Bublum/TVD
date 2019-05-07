@@ -148,10 +148,10 @@ def vehicle_detection(id):
                             # cv2.imshow('test', cv2.resize(image_np_copy, (800, 600)))
                             # im.show()
                             img = Image.fromarray(cropped_img, 'RGB')
-
-                            img.save('my.png')
+                            image_name = str(each_frame) + '_' + str(i) + '.png'
+                            img.save(image_name)
                             v = VehicleDetection(vehicle_type=class_obj)
-                            v.image.save('aaaa', File(open('my.png', 'rb')))
+                            v.image.save(image_name, File(open(image_name, 'rb')))
                             v.save()
                 cap.set(1, each_frame * dps)
         input_obj.is_processed = True
