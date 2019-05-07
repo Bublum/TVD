@@ -3,6 +3,14 @@ from django.db import models
 
 # Create your models here.
 
+
+class CameraMaster(models.Model):
+    location = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    serial_number = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=True)
+
+
 class Detection(models.Model):
     model_type = models.CharField(max_length=100)
     model_path = models.FileField(max_length=1000)
@@ -11,21 +19,29 @@ class Detection(models.Model):
     is_active = models.BooleanField(default=True)
 
 
+class VehicleTypeMaster(models.Model):
+    type = models.CharField(max_length=15)
+    # number = models.CharField(max_length=15, null=True, blank=True)
+    # mobile = models.PositiveIntegerField(default='8554951545')
+
 
 class VehicleDetection(models.Model):
-    number = models.CharField(max_length=15, null=True, blank=True)
-    mobile = models.PositiveIntegerField(default='8554951545')
-    address = models.CharField(max_length=250, default='test')
+    # vehicle = models.ForeignKey(VehicleMaster, on_delete=models.CASCADE)
+    # address = models.CharField(max_length=250, default='test')
     type = models.CharField(max_length=100)
-    image = models.FileField(max_length=1000)
+    camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
+    image = models.FileField()
     is_done = models.BooleanField(default=False)
 
 
-class Camera(models.Model):
-    location = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-    serial_number = models.CharField(max_length=100)
-    is_active = models.BooleanField(default=True)
+class NumberPlate(models.Model):
+    number = models.CharField(max_length=15)
+
+
+class NumberPlateDetection(models.Model):
+    number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
+    image = models.FileField()
+    vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
 
 
 class Input(models.Model):
@@ -48,11 +64,12 @@ class ViolationMaster(models.Model):
 
 class VehicleViolation(models.Model):
     vehicle = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
-    camera = models.ForeignKey(Camera, on_delete=models.CASCADE)
+    # camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
     timestamp = models.DateTimeField()
     has_paid = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_done = models.BooleanField(default=False)
 
 
 class Config(models.Model):
