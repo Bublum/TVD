@@ -16,16 +16,13 @@
                 <ul class="list-unstyled components">
                     <li class="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
-                           class="dropdown-toggle">Home</a>
+                           class="dropdown-toggle">Violations</a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
                             <li>
-                                <a href="#">Home 1</a>
+                                <a href="{% url 'detection:daywise' %}">Day Wise</a>
                             </li>
                             <li>
-                                <a href="#">Home 2</a>
-                            </li>
-                            <li>
-                                <a href="#">Home 3</a>
+                                <a href="#">Vehicle Wise</a>
                             </li>
                         </ul>
                     </li>
