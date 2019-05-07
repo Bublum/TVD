@@ -74,7 +74,7 @@ class NumberPlateDetection(models.Model):
     vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.number_plate
+        return str(self.number_plate)
 
 
 class Input(models.Model):
