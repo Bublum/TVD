@@ -76,6 +76,7 @@ class NumberPlateDetection(models.Model):
     def __str__(self):
         return self.number_plate
 
+
 class Input(models.Model):
     file = models.FileField(max_length=1000, upload_to=input_video_directory)
     name = models.CharField(max_length=200, unique=True)
@@ -98,6 +99,7 @@ class VehicleMonitor(models.Model):
 
     def __str__(self):
         return self.number_detection
+
 
 # class ViolationDetection(models.Model):
 #     detection = models.ForeignKey(Detection, on_delete=models.CASCADE)

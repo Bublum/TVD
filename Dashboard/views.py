@@ -73,5 +73,5 @@ def monitoring(request):
         if request.is_ajax():
             selected_date = datetime.datetime.strptime(request.POST.get('selected_date'), '%d-%m-%Y').date()
             vehicle_number = request.POST.get('vehicle_number')
-            results = VehicleMonitor.objects.filter()
+            results = VehicleMonitor.objects.filter(n)
 
