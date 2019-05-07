@@ -9,16 +9,19 @@ from Dashboard.models import Input, Model, ViolationMaster, VehicleViolation, Ve
 import tensorflow as tf
 import cv2
 
-from Dashboard.tasks import add, vehicle_detection
+from Dashboard.tasks import add, vehicle_detection, number_plate_detection
 
 
 def homepage(request):
     if request.method == 'GET':
         # vehicle_detection.delay()
-        all_input = Input.objects.filter(is_processed=False)
-        for each_input in all_input:
-            vehicle_detection.apply_async(args=[str(each_input.pk)], queue='feed_tasks')
+        # all_input = Input.objects.filter(is_processed=False)
+        # for each_input in all_input:
+        #     vehicle_detection.apply_async(args=[str(each_input.pk)], queue='feed_tasks')
 
+        # vehicle_detection.apply_async(queue='vehicle_detection')
+        # number_plate_detection.apply_async(queue='number_plate_detection')
+        number_plate_detection()
         # all_input = Input.objects.filter(is_active=True)
         #
         # input_json = {}

@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(VehicleDetection)
+admin.site.register(NumberPlateDetection)
 admin.site.register(Model)
 admin.site.register(Input)
 admin.site.register(ViolationMaster)
