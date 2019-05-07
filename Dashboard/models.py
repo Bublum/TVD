@@ -49,7 +49,7 @@ class VehicleDetection(models.Model):
     type = models.CharField(max_length=100)
     camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
     image = models.FileField()
-    is_done = models.BooleanField(default=False)
+    is_processed = models.BooleanField(default=False)
 
 
 class NumberPlate(models.Model):
