@@ -3,7 +3,9 @@ import datetime
 from django.shortcuts import render
 
 # Create your views here.
-from Dashboard.models import Input, Model, ViolationMaster, VehicleViolation
+from django.views.decorators.csrf import csrf_exempt
+
+from Dashboard.models import Input, Model, ViolationMaster, VehicleViolation, VehicleMonitor
 import tensorflow as tf
 import cv2
 
@@ -41,7 +43,7 @@ def violation(request):
 
 def daywise(request):
     if request.method == 'GET':
-        return render(request, 'html/daywise.html')
+        return render(request, 'html/daywise_violation.html')
     else:
         selected_date = datetime.datetime.strptime(request.POST.get('selected_date'), '%d-%m-%Y').date()
         start_timestamp = datetime.datetime.combine(selected_date, datetime.time.min)
@@ -49,13 +51,24 @@ def daywise(request):
         violations = VehicleViolation.objects.filter(timestamp__range=(start_timestamp, end_timestamp))
         if len(violations) == 0:
             message = 'No violations on selected date.'
-            return render(request, 'html/daywise.html', {
+            return render(request, 'html/daywise_violation.html', {
                 'selected_date': selected_date,
                 'message': message
             })
 
         else:
-            return render(request, 'html/daywise.html', {
+            return render(request, 'html/daywise_violation.html', {
                 'selected_date': selected_date,
                 'violations': violations
             })
+
+@csrf_exempt
+def monitoring(request):
+    if request.method == 'GET':
+        return render(request, 'html/vehicle_monitoring.html')
+    elif request.method == 'POST':
+        if request.is_ajax():
+            selected_date = datetime.datetime.strptime(request.POST.get('selected_date'), '%d-%m-%Y').date()
+            vehicle_number = request.POST.get('vehicle_number')
+            results = VehicleMonitor.objects.filter()
+
