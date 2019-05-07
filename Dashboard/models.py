@@ -92,6 +92,7 @@ class Input(models.Model):
 class VehicleMonitor(models.Model):
     number_detection = models.ForeignKey(NumberPlateDetection, on_delete=models.CASCADE)
     mobile = models.PositiveIntegerField(default='8554951545')
+    timestamp = models.DateTimeField()
     # address = models.CharField(max_length=250, default='test')
     # vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     image = models.FileField(max_length=1000, upload_to=vehicle_monitor_directory)
@@ -119,7 +120,6 @@ class VehicleViolation(models.Model):
     vehicle = models.ForeignKey(VehicleMonitor, on_delete=models.CASCADE)
     camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
-    timestamp = models.DateTimeField()
     has_paid = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_processed = models.BooleanField(default=False)
