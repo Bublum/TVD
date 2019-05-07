@@ -99,7 +99,7 @@ class VehicleMonitor(models.Model):
     is_done = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.number_detection
+        return str(self.number_detection)
 
 
 # class ViolationDetection(models.Model):
