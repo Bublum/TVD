@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Dashboard.apps.DashboardConfig',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CELERY_BROKER_URL = 'amqp://test:test@127.0.0.1//'
+CELERY_RESULT_BACKEND = 'django-db'

@@ -6,35 +6,73 @@
 {% endblock style %}
 {% block content %}
     <br>
-    <div class="row">
-        <div class="col-md-4 offset-md-1">
-            <div class="card text-center">
-                <div class="card-header">
-                    <h3 class="card-title">Select Violation</h3>
-                </div>
-                <div class="card-body">
-                    {% for i in violation_objs %}
-                        <input type="radio" name="violation" value="{{ i.pk }}" id="violation_{{ id.pk }}">
-                        <label for="violation_{{ id.pk }}">{{ i.name }}</label>
-                    {% endfor %}
-
-
-                    {#                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
-                    {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 offset-md-1">
-            <div class="card text-center">
-                <div class="card-header">
-                    <h3 class="card-title">Select Model</h3>
-                </div>
-                <div class="card-body" id="model_card">
-
-
-                    <p class="card-text">Select any model first!</p>
+    <form action="{% url 'detection:violation' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4 offset-md-1">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h3 class="card-title">Select Violation</h3>
+                    </div>
+                    <div class="card-body">
+                        {% for i in violation_objs %}
+                            <input type="radio" name="violation" value="{{ i.pk }}" id="violation_{{ i.pk }}"
+                                   onclick="filterSelection('{{ i.name }}')">
+                            <label for="violation_{{ id.pk }}"
+                                   onclick="filterSelection('{{ i.name }}')">{{ i.name }}</label><br>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4 offset-md-1">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h3 class="card-title">Select Model</h3>
+                    </div>
+                    <div class="card-body" id="model_card">
+
+                        <p class="card-text" id="initial_message">Select any model first!</p>
+
+                        <div id="model_list" style="display: none;">
+                            {% for i in detection_objs %}
+                                <div class="{{ i.model_type }}" style="display: none;">
+                                    <input type="radio" name="model" value=" {{ i.pk }}" id="model_{{ i.pk }}">
+                                    <label for="model_{{ i.pk }}">{{ i.model_name }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-    </div>
+        <div class="row">
+            <div class="offset-md-5 col-md-1">
+                <input type="submit" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        function filterSelection(c) {
+            document.getElementById('initial_message').style.display = 'none';
+
+            parent_div = document.getElementById('model_list').style.display = 'block';
+
+            var children = [].slice.call(document.getElementById('model_list').getElementsByTagName('div'), 0);
+            var elements = new Array(children.length);
+            var arrayLength = children.length;
+            for (var i = 0; i < arrayLength; i++) {
+                if (children[i].getAttribute("class") === c) {
+                    children[i].style.display = 'block';
+                } else {
+                    children[i].style.display = 'none';
+                }
+            }
+
+        }
+    </script>
 {% endblock content %}
