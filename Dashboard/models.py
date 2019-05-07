@@ -69,7 +69,7 @@ class NumberPlate(models.Model):
 
 
 class NumberPlateDetection(models.Model):
-    number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
+    # number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
     image = models.FileField()
     vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
 
@@ -96,7 +96,7 @@ class VehicleMonitor(models.Model):
     # address = models.CharField(max_length=250, default='test')
     # vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     image = models.FileField(max_length=1000, upload_to=vehicle_monitor_directory)
-    is_done = models.BooleanField(default=False)
+    # is_done = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.number_detection)
