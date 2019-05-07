@@ -4,5 +4,7 @@ min_score_thresh = 0.5
 
 categories_to_detect = ['car', 'motorcycle', 'airplane', 'bus', 'truck', 'traffic light']
 
+dps = 10
+
 # Celery command
 # celery -A TVD worker -l info

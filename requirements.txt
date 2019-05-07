@@ -1,4 +1,5 @@
 celery
+django_celery_results
 tensorflow
 numpy
 django_celery_results
