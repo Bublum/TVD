@@ -76,6 +76,7 @@ class NumberPlateDetection(models.Model):
     def __str__(self):
         return self.number_plate
 
+
 class Input(models.Model):
     file = models.FileField(max_length=1000, upload_to=input_video_directory)
     name = models.CharField(max_length=200, unique=True)
@@ -99,6 +100,7 @@ class VehicleMonitor(models.Model):
     def __str__(self):
         return self.number_detection
 
+
 # class ViolationDetection(models.Model):
 #     detection = models.ForeignKey(Detection, on_delete=models.CASCADE)
 #     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
@@ -109,6 +111,9 @@ class ViolationMaster(models.Model):
     fine_amount = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
+
 
 class VehicleViolation(models.Model):
     vehicle = models.ForeignKey(VehicleMonitor, on_delete=models.CASCADE)
@@ -118,6 +123,9 @@ class VehicleViolation(models.Model):
     has_paid = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_done = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.vehicle + ' - ' + self.violation
 
 
 class Config(models.Model):
