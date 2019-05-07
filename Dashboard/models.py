@@ -3,7 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class CameraMaster(models.Model):
     location = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
@@ -42,6 +41,12 @@ class NumberPlateDetection(models.Model):
     number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
     image = models.FileField()
     vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
+
+
+class VehicleMonitor(models.Model):
+    number_detection = models.ForeignKey(NumberPlateDetection, on_delete=models.CASCADE)
+    image = models.FileField()
+    is_done = models.BooleanField(default=False)
 
 
 class Input(models.Model):
