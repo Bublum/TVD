@@ -125,7 +125,7 @@ class VehicleViolation(models.Model):
     is_processed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.vehicle + ' - ' + self.violation
+        return str(self.vehicle) + ' - ' + str(self.violation)
 
 
 class Config(models.Model):
