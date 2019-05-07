@@ -36,12 +36,11 @@
     <script>
         $('#date_search').datepicker({
             format: 'dd-mm-yyyy',
-
         });
 
         function search() {
-
             let date = document.getElementById('date_search').value;
+            alert(date);
             let vehicle_number = document.getElementById('vehicle_number').value;
 
             $.ajax({
