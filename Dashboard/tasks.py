@@ -125,9 +125,9 @@ def vehicle_detection(id):
                 image_np_copy = copy.deepcopy(image_np)
 
                 num_detected_vehicles = output_dict['num_detections']
-                # print(num_detected_vehicles)
+                # print('detected', num_detected_vehicles)
                 for i in range(num_detected_vehicles):
-                    # print(output_dict)
+                    # print('score', i, output_dict['detection_scores'][i])
                     if output_dict['detection_scores'][i] >= min_score_thresh:
                         try:
                             class_name = category_index[output_dict['detection_classes'][i]]['name']
@@ -149,9 +149,9 @@ def vehicle_detection(id):
                             # im.show()
                             img = Image.fromarray(cropped_img, 'RGB')
                             image_name = str(each_frame) + '_' + str(i) + '.png'
-                            img.save(image_name)
-                            v = VehicleDetection(vehicle_type=class_obj)
-                            v.image.save(image_name, File(open(image_name, 'rb')))
+                            img.save('my.png')
+                            v = VehicleDetection(vehicle_type=class_obj, camera=input_obj.camera)
+                            v.image.save(image_name, File(open('my.png', 'rb')))
                             v.save()
                 cap.set(1, each_frame * dps)
         input_obj.is_processed = True
@@ -234,13 +234,16 @@ def number_plate_detection():
                 image_np_copy = copy.deepcopy(image_np)
 
                 num_detected_vehicles = output_dict['num_detections']
-                # print(num_detected_vehicles)
+                # print('detectted', num_detected_vehicles)
                 for i in range(num_detected_vehicles):
                     # print(output_dict)
+                    # print('score', output_dict['detection_scores'][i])
                     if output_dict['detection_scores'][i] >= min_score_thresh:
                         try:
+
                             class_name = category_index[output_dict['detection_classes'][i]]['name']
                         except:
+                            print('in except')
                             continue
                         if class_name in categories_to_detect:
                             coord = output_dict['detection_boxes'][i]
@@ -251,14 +254,15 @@ def number_plate_detection():
                             x2 = int(x2 * image_np.shape[1])
                             print(x1, x2, y1, y2)
                             cropped_img = image_np[y1:y2, x1:x2]
-                            class_obj = VehicleTypeMaster.objects.get(vehicle_type=class_name)
+                            # class_obj = VehicleTypeMaster.objects.get(type=class_name)
                             rescaled = np.uint8(cropped_img)
                             # im = (Image.fromarray(rescaled, 'RGB'))
                             # cv2.imshow('test', cv2.resize(image_np_copy, (800, 600)))
                             # im.show()
                             img = Image.fromarray(cropped_img, 'RGB')
-                            img.save('my.png')
+                            image_name = str(each_input.pk) + '.png'
+                            img.save('media/test.png')
                             v = NumberPlateDetection(vehicle_detection=each_input)
-                            v.image.save('aaaa', File(open('my.png', 'rb')))
+                            v.image.save(image_name, File(open('media/test.png', 'rb')))
                             v.save()
     return True

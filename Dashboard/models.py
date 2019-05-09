@@ -2,7 +2,7 @@ from django.db import models
 
 
 def vehicle_detection_directory(instance, filename):
-    return 'Vehicle/{0}/{1}.png'.format(instance.vehicle_type.vehicle_type, filename)
+    return 'Vehicle/{0}/{1}.png'.format(instance.vehicle_type.type, filename)
 
 
 def vehicle_monitor_directory(instance, filename):
@@ -19,6 +19,10 @@ def label_directory(instance, filename):
 
 def input_video_directory(instance, filename):
     return 'Input/{0}'.format(filename)
+
+
+def number_plate_directory(instance, filename):
+    return 'Number_Plate/{0}'.format(filename)
 
 
 class Model(models.Model):
@@ -52,9 +56,9 @@ class VehicleTypeMaster(models.Model):
 class VehicleDetection(models.Model):
     # vehicle = models.ForeignKey(VehicleMaster, on_delete=models.CASCADE)
     # address = models.CharField(max_length=250, default='test')
-    type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
+    vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
-    image = models.FileField()
+    image = models.FileField(upload_to=vehicle_detection_directory, max_length=1000)
     is_processed = models.BooleanField(default=False)
 
     def __str__(self):
@@ -69,12 +73,13 @@ class NumberPlate(models.Model):
 
 
 class NumberPlateDetection(models.Model):
-    number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
-    image = models.FileField()
+    # number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
+    image = models.FileField(upload_to=number_plate_directory, max_length=1000)
     vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.number_plate
+    # def __str__(self):
+    #     return self.number_plate
+
 
 class Input(models.Model):
     file = models.FileField(max_length=1000, upload_to=input_video_directory)
@@ -82,7 +87,7 @@ class Input(models.Model):
     file_type = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
     is_processed = models.BooleanField(default=False)
-    location = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
+    camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -98,6 +103,7 @@ class VehicleMonitor(models.Model):
 
     def __str__(self):
         return self.number_detection
+
 
 # class ViolationDetection(models.Model):
 #     detection = models.ForeignKey(Detection, on_delete=models.CASCADE)

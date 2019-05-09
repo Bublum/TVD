@@ -19,7 +19,7 @@ def homepage(request):
             vehicle_detection(each_input.pk)
         # vehicle_detection.apply_async(queue='vehicle_detection')
         # number_plate_detection.apply_async(queue='number_plate_detection')
-        # number_plate_detection()
+        number_plate_detection()
         # all_input = Input.objects.filter(is_active=True)
         #
         # input_json = {}
