@@ -1,4 +1,6 @@
 import copy
+import os
+
 import math
 
 import cv2
@@ -14,18 +16,12 @@ from django.forms import FileField
 
 from Dashboard.config import maximum_classes_to_detect, min_score_thresh, categories_to_detect, dps
 from Dashboard.models import Model, Input, VehicleTypeMaster, VehicleDetection, NumberPlateDetection
+from TVD import settings
 from object_detection.functions import count_frames_manual, load_image_into_numpy_array
 from object_detection.ops import reframe_box_masks_to_image_masks
 from object_detection.utils import label_map_util
 
 app = Celery('tasks', backend='rpc://', broker='amqp://test:test@127.0.0.1//')
-
-
-@shared_task
-def add(x, y):
-    for i in range(1, 500000):
-        print(i)
-    return x + y
 
 
 def load_graph(model_path):
@@ -43,7 +39,7 @@ def load_graph(model_path):
 @app.task
 def vehicle_detection(id):
     detection_obj = Model.objects.get(model_type='Vehicle', is_active=True)
-
+    save_dir = os.path.join(os.path.join(settings.MEDIA_ROOT, id), 'Vehicles')
     model_path = detection_obj.model.path
     input_obj = Input.objects.get(pk=int(id))
     model_label = detection_obj.label.path
@@ -72,6 +68,9 @@ def vehicle_detection(id):
             for each_frame in range(math.ceil(length / dps)):
                 print(each_frame)
                 rev, image_np = cap.read()
+                frame_name = 'original_frame_' + str(each_frame)
+                image_np.save(os.path.join(save_dir, frame_name))
+
                 # img.save('my.png')
                 # img.show()
                 # cv2.imshow('test', image_np)
@@ -149,9 +148,9 @@ def vehicle_detection(id):
                             # im.show()
                             img = Image.fromarray(cropped_img, 'RGB')
                             image_name = str(each_frame) + '_' + str(i) + '.png'
-                            img.save('my.png')
-                            v = VehicleDetection(vehicle_type=class_obj, camera=input_obj.camera)
-                            v.image.save(image_name, File(open('my.png', 'rb')))
+                            img.save(image_name)
+                            v = VehicleDetection(vehicle_type=class_obj, original_frame=os.path.join(save_dir,frame_name))
+                            v.image.save(image_name, File(open(image_name, 'rb')))
                             v.save()
                 cap.set(1, each_frame * dps)
         input_obj.is_processed = True
@@ -233,9 +232,9 @@ def number_plate_detection():
 
                 image_np_copy = copy.deepcopy(image_np)
 
-                num_detected_vehicles = output_dict['num_detections']
-                # print('detectted', num_detected_vehicles)
-                for i in range(num_detected_vehicles):
+                num_detected_number_plate = output_dict['num_detections']
+                # print(num_detected_vehicles)
+                for i in range(num_detected_number_plate):
                     # print(output_dict)
                     # print('score', output_dict['detection_scores'][i])
                     if output_dict['detection_scores'][i] >= min_score_thresh:

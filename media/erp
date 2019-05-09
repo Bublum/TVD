@@ -1,0 +1,345 @@
+707
+757 nish comp	
+<select name="ctl00$ContentPlaceHolder1$ddlFaculty" id="ctl00_ContentPlaceHolder1_ddlFaculty" style="font-family:Calibri;font-size:11pt;width:80%;">
+			<option selected="selected" value="-1">SELECT</option>
+			<option value="920">Apte Ramchandra Suresh [CE]</option>
+			<option value="1430">Deokar Ashish  Fulchand [CE]</option>
+			<option value="1004">Gore Shruti Laxmikant [CE]</option>
+			<option value="1003">Joshi Rahul Ashok [CE]</option>
+			<option value="1535">Kale Ashish  Raghunath [CE]</option>
+			<option value="1509">Kulkarni Manohari Prabhakar [CE]</option>
+			<option value="989">Kulkarni Preeti  Santosh  [CE]</option>
+			<option value="923">Ladhe Amol Dattuji [CE]</option>
+			<option value="1560">Namjoshi Preeti Milind [CE]</option>
+			<option value="1132">Nitsure Suhas  Prabhakar  [CE]</option>
+			<option value="994">Patil Shilpa Vishal [CE]</option>
+			<option value="1039">Pendse Abhijit Vasant [CE]</option>
+			<option value="1154">Sahare Sheetal Ajay [CE]</option>
+			<option value="1465">Sawalkar Nitin Tukaram [CE]</option>
+			<option value="1426">Tanawade Archana Girish [CE]</option>
+			<option value="1510">Yadhav Adinath Dnyanev [CE]</option>
+			<option value="988">Bewoor Laxmi  Anand  [CS]</option>
+			<option value="1504">Bhirud Nivedita Satyajeet [CS]</option>
+			<option value="1495">Chavhan Pranali  Gajanan [CS]</option>
+			<option value="987">Deshpande Leena  Amit  [CS]</option>
+			<option value="1102">Dongre Yashwant Vinayak [CS]</option>
+			<option value="1124">Gaikwad Vidya Shrimant [CS]</option>
+			<option value="937">Inamdar Fatima Mohin [CS]</option>
+			<option value="1130">Karnik Madhuri Prashant [CS]</option>
+			<option value="1034">Karyakarte Mandar  Subhash [CS]</option>
+			<option value="1419">Katade Aniket Purushottam [CS]</option>
+			<option value="1038">Kulkarni Saroja Mangesh [CS]</option>
+			<option value="983">Mali Manisha Pravin [CS]</option>
+			<option value="1121">Meshram Vidula Vishal [CS]</option>
+			<option value="1115">Meshram Vishal Ambadas [CS]</option>
+			<option value="1114">Mishra Vaishali Ashutosh [CS]</option>
+			<option value="1106">More Priyanka Dhananjay [CS]</option>
+			<option value="1119">Rathi Snehal Rahul [CS]</option>
+			<option value="1100">Rege Pallavi Ravindra [CS]</option>
+			<option value="1418">Sakhare Nitin Nandkumar [CS]</option>
+			<option value="1021">Sakhare Sachin Rambhau [CS]</option>
+			<option value="1085">Tatale Subhash Bhalu [CS]</option>
+			<option value="1110">Tiwaskar Shweta Aditya [CS]</option>
+			<option value="986">Wanjale Kirti  Hemant  [CS]</option>
+			<option value="1257">Wankhede Disha Sushant [CS]</option>
+			<option value="1519">Wasatkar Namrata Nishant [CS]</option>
+			<option value="915">Aher Vijaya Navnath [E&amp;TC]</option>
+			<option value="1139">Ambhore Vishal Bhaskarrao [E&amp;TC]</option>
+			<option value="996">Bang Aarti Vasant [E&amp;TC]</option>
+			<option value="1067">Chavan Rohini Abhijit [E&amp;TC]</option>
+			<option value="1116">Chavhan Gajanan Himmatrao [E&amp;TC]</option>
+			<option value="1495">Chavhan Pranali  Gajanan [E&amp;TC]</option>
+			<option value="1081">Chitre Abhijit Vijaykumar [E&amp;TC]</option>
+			<option value="1001">Dandawate Yogesh Haribhau [E&amp;TC]</option>
+			<option value="1117">Deshmukh Minal Samir [E&amp;TC]</option>
+			<option value="1113">Deshpande Pallavi Devendra [E&amp;TC]</option>
+			<option value="1109">Gawande Pravin Ganpatrao [E&amp;TC]</option>
+			<option value="1104">Habbu Shraddha Kiran [E&amp;TC]</option>
+			<option value="1082">Jadhav Tushar Ramhari [E&amp;TC]</option>
+			<option value="1076">Joshi Shrikant Shankar [E&amp;TC]</option>
+			<option value="1042">Kamble Lahu Anand [E&amp;TC]</option>
+			<option value="1099">Kulkarni Shailesh  Vasudeo [E&amp;TC]</option>
+			<option value="919">Mathurkar Piyush Kiranrao [E&amp;TC]</option>
+			<option value="1127">Patil Milind Sahebrao [E&amp;TC]</option>
+			<option value="1086">Pol Rahul Shivaji [E&amp;TC]</option>
+			<option value="1073">Purandare Radhika Girish [E&amp;TC]</option>
+			<option value="1066">Ratnaparkhi Archana Kshitij [E&amp;TC]</option>
+			<option value="1103">Talware Rajendra Shankar [E&amp;TC]</option>
+			<option value="1029">Bagade Jayashree Vithalrao [IT]</option>
+			<option value="1128">Bhimanpallewar Ratnmala Nivrattirao [IT]</option>
+			<option value="1044">Dedgaonkar Suruchi Gaurav [IT]</option>
+			<option value="1042">Kamble Lahu Anand [IT]</option>
+			<option value="1038">Kulkarni Saroja Mangesh [IT]</option>
+			<option value="1242">Pathak Narendra Prabhakar [IT]</option>
+			<option value="1041">Patil Swati Bula [IT]</option>
+			<option value="1036">Shelke Priya Makarand [IT]</option>
+			<option value="1043">Wawage Pawan Subhash [IT]</option>
+			<option value="926">Ambhore Nitin Hiraman [ME]</option>
+			<option value="1059">Anerao Prashant Ramchandra [ME]</option>
+			<option value="945">Chinchanikar Satish Suresh [ME]</option>
+			<option value="1255">Gadge Mahendra Govind [ME]</option>
+			<option value="1423">JAGDALE MANOJ NARSING [ME]</option>
+			<option value="927">Kale Ajay Dattatray [ME]</option>
+			<option value="1551">KAMBLE DHANAPAL ANANDA [ME]</option>
+			<option value="1541">Kamble Dr. Dinesh  Namdeorao [ME]</option>
+			<option value="997">Kulkarni Atul Prabhakar [ME]</option>
+			<option value="1057">Nalawade Dattatraya Babanrao [ME]</option>
+			<option value="938">Ramtirthkar Chandrashekhar Ramesh [ME]</option>
+			<option value="1083">Salve Aniket Vinayak [ME]</option>
+			<option value="1078">Somatkar Avinash Abhiman  [ME]</option>
+
+		</select>
+		
+		
+<select name="ctl00$ContentPlaceHolder1$ddlSubject" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ddlSubject\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_ddlSubject" style="font-family:Calibri;font-size:11pt;width:100%;">
+	<option selected="selected" value="-1">---SELECT---</option>
+	<option value="3838527335418642741">ADVANCED DIGITAL SIGNAL PROCESSING</option>
+	<option value="4991735743841055536">ADVANCED FOUNDATION ENGINEERING</option>
+	<option value="3834887862038638649">ADVANCED MANUFACTURING PROCESS</option>
+	<option value="3688506670759167027">ADVANCED STRUCTURAL DESIGN</option>
+	<option value="3761408633841203510">ADVANCED TRANSPORTATION ENGINEERING</option>
+	<option value="3618423799603611201">AIR POLLUTION AND CONTROL</option>
+	<option value="4918566526668387126">AIRPORT AND BRIDGE ENGINEERING</option>
+	<option value="5063246932188743220">AUDIO AND SPEECH PROCESSING</option>
+	<option value="3688792479005620020">AUDIO VIDEO ENGINEERING</option>
+	<option value="4771617982726222133">BIO-MEDICAL ELECTRONICS</option>
+	<option value="3761131543791153716">BROADBAND COMMUNICATION SYSTEMS</option>
+	<option value="3618138935545641265">CLOUD COMPUTING</option>
+	<option value="3474867077250236727">COASTAL ENGINEERING</option>
+	<option value="3982927236876547910">COMPILERS</option>
+	<option value="3977857432046416706">CONSTRUCTION MANAGEMENT</option>
+	<option value="4915459336621605172">DAMS AND HYDRAULIC STRUCTURES</option>
+	<option value="3837968774921798469">DISTRIBUTED COMPUTING SYSTEM</option>
+	<option value="3832903251972539705">EMBEDDED AND REAL TIME OPERATING SYSTEM</option>
+	<option value="4769669562356876850">ENERGY ENGINEERING</option>
+	<option value="4049637884678191410">FINITE ELEMENT METHOD IN CIVIL ENGG.</option>
+	<option value="3544409019001418804">HUMAN COMPUTER INTERACTION</option>
+	<option value="3837407976897393719">HYDROPOWER ENGINEERING</option>
+	<option value="4913769374651007302">INDUSTRIAL ENGINEERING</option>
+	<option value="3617572708583293748">INFORMATION AND CYBER SECURITY</option>
+	<option value="4771918140943713601">INFORMATION STORAGE AND RETRIEVAL</option>
+	<option value="4770212725361358134">INTERNET OF THINGS</option>
+	<option value="4049636845095565369">MACHINE LEARNING</option>
+	<option value="4049636845095565369">MACHINE LEARNING</option>
+	<option value="4770496480966686275">MECHANICAL SYSTEM DESIGN</option>
+	<option value="3693857924779098932">MOBILE COMMUNICATION</option>
+	<option value="3834606386759938352">OPEN ELECTIVE</option>
+	<option value="3834606386759938352">OPEN ELECTIVE</option>
+	<option value="3834606386759938352">OPEN ELECTIVE</option>
+	<option value="3477678601446438707">PLCS AND AUTOMATION</option>
+	<option value="3833749957479122241">PRODUCT DESIGN AND DEVELOPMENT</option>
+	<option value="4913767244346177332">QUANTITY SURVEYING ,CONTRACTS AND TENDERS</option>
+	<option value="3617308873103852357">RENEWABLE ENERGY SYSTEMS</option>
+	<option value="4987518073439334725">ROBOTICS</option>
+	<option value="4987518073439334725">ROBOTICS</option>
+	<option value="3690756189591973939">RURAL TECHNOLOGIES AND COMMUNITY DEVELOPMENT</option>
+	<option value="3906384722040928308">SOCIAL MEDIA ANALYTICS</option>
+	<option value="4991190386123945780">SOFT COMPUTING AND OPTIMIZATION ALGORITHMS</option>
+	<option value="4698720349272290884">SOFTWARE DEFINED NETWORKS</option>
+	<option value="4775014361543886401">SOFTWARE DEFINED RADIO</option>
+	<option value="4843976748610826822">SOLAR AND WIND ENERGY</option>
+	<option value="5058725757873964099">STATISTICAL ANALYSIS AND COMPUTATIONAL METHODS IN CIVIL ENGG.</option>
+	<option value="3545239145984574531">TRIBOLOGY</option>
+	<option value="3544671844943676483">UBIQUITOUS COMPUTING</option>
+	<option value="3762535684632691768">WIRELESS SENSOR NETWORKS</option>
+
+</select>
+
+1257
+
+
+
+
+
+
+
+
+
+
+<select name="ctl00$ContentPlaceHolder1$ddlFaculty" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$ddlFaculty\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_ddlFaculty" style="width:250px;">
+			<option selected="selected" value="-1" title="---SELECT---">---SELECT---</option>
+			<option value="1097" title="Dr. Aditya Shankar Abhyankar">Dr. Aditya Shankar Abhyankar</option>
+			<option value="935" title="Dr. Ashok Rangnath Mache">Dr. Ashok Rangnath Mache</option>
+			<option value="997" title="Dr. Atul Prabhakar Kulkarni">Dr. Atul Prabhakar Kulkarni</option>
+			<option value="910" title="Dr. Chandrashekhar Someshwar Garde">Dr. Chandrashekhar Someshwar Garde</option>
+			<option value="1551" title="Dr. Dhanapal Ananda Kamble">Dr. Dhanapal Ananda Kamble</option>
+			<option value="1541" title="Dr. Dinesh Namdeorao Kamble">Dr. Dinesh Namdeorao Kamble</option>
+			<option value="1031" title="Dr. Hemand Bhagwat Dhonde">Dr. Hemand Bhagwat Dhonde</option>
+			<option value="1030" title="Dr. Kailas Ravsaheb Patil">Dr. Kailas Ravsaheb Patil</option>
+			<option value="1034" title="Dr. Mandar Subhash Karyakarte">Dr. Mandar Subhash Karyakarte</option>
+			<option value="991" title="Dr. Milinda Ashok Mahajan">Dr. Milinda Ashok Mahajan</option>
+			<option value="1561" title="Dr. Prakash Bhaskarrao Kulkarni">Dr. Prakash Bhaskarrao Kulkarni</option>
+			<option value="989" title="Dr. Preeti Santosh Kulkarni">Dr. Preeti Santosh Kulkarni</option>
+			<option value="939" title="Dr. Ravindra Shriram Acharya">Dr. Ravindra Shriram Acharya</option>
+			<option value="914" title="Dr. Rohini S. Bhalerao-panajkar">Dr. Rohini S. Bhalerao-panajkar</option>
+			<option value="1021" title="Dr. Sachin Rambhau Sakhare">Dr. Sachin Rambhau Sakhare</option>
+			<option value="945" title="Dr. Satish Suresh Chinchanikar">Dr. Satish Suresh Chinchanikar</option>
+			<option value="992" title="Dr. Shardul Gangadhar Joshi">Dr. Shardul Gangadhar Joshi</option>
+			<option value="994" title="Dr. Shilpa Vishal Patil">Dr. Shilpa Vishal Patil</option>
+			<option value="993" title="Dr. Shreenivas Neelkanth Londhe">Dr. Shreenivas Neelkanth Londhe</option>
+			<option value="1132" title="Dr. Suhas Prabhakar Nitsure">Dr. Suhas Prabhakar Nitsure</option>
+			<option value="909" title="Dr. Vaishali Arun Patil">Dr. Vaishali Arun Patil</option>
+			<option value="936" title="Dr. Yogesh Dattatraya Deshpande">Dr. Yogesh Dattatraya Deshpande</option>
+			<option value="1001" title="Dr. Yogesh Haribhau Dandawate">Dr. Yogesh Haribhau Dandawate</option>
+			<option value="1047" title="Miss. Deepa Bhaurao Patil">Miss. Deepa Bhaurao Patil</option>
+			<option value="1572" title="Miss. Namrata Prakash Bagwe">Miss. Namrata Prakash Bagwe</option>
+			<option value="1562" title="Miss. Vrushali Umesh Dekate">Miss. Vrushali Umesh Dekate</option>
+			<option value="3977304313071548213" title="Mr. Abc Jkl Asd">Mr. Abc Jkl Asd</option>
+			<option value="1510" title="Mr. Adinath Dnyandev Yadhav">Mr. Adinath Dnyandev Yadhav</option>
+			<option value="1525" title="Mr. Amit Shivputra Dharnaik">Mr. Amit Shivputra Dharnaik</option>
+			<option value="1596" title="Mr. Amit Wamanrao Khandagale">Mr. Amit Wamanrao Khandagale</option>
+			<option value="923" title="Mr. Amol Dattuji Ladhe">Mr. Amol Dattuji Ladhe</option>
+			<option value="1520" title="Mr. Amol Radhakisan Dhumal">Mr. Amol Radhakisan Dhumal</option>
+			<option value="1419" title="Mr. Aniket Purushottam Katade">Mr. Aniket Purushottam Katade</option>
+			<option value="1430" title="Mr. Ashish Fulchand Deokar">Mr. Ashish Fulchand Deokar</option>
+			<option value="1535" title="Mr. Ashish Raghunath Kale">Mr. Ashish Raghunath Kale</option>
+			<option value="941" title="Mr. Avinash Bhanudas Raut">Mr. Avinash Bhanudas Raut</option>
+			<option value="907" title="Mr. Bhausaheb Punaji Dane">Mr. Bhausaheb Punaji Dane</option>
+			<option value="1507" title="Mr. Deepak Dinesh Gupta">Mr. Deepak Dinesh Gupta</option>
+			<option value="911" title="Mr. Dhanajay Shantaram Pawar">Mr. Dhanajay Shantaram Pawar</option>
+			<option value="1578" title="Mr. Dineshkumar Y Turkar">Mr. Dineshkumar Y Turkar</option>
+			<option value="1070" title="Mr. Ganesh Chandrabhan Shelke">Mr. Ganesh Chandrabhan Shelke</option>
+			<option value="1522" title="Mr. Ganesh Kashinath Lamdhade">Mr. Ganesh Kashinath Lamdhade</option>
+			<option value="1547" title="Mr. Jaydeep Gajanan Watve">Mr. Jaydeep Gajanan Watve</option>
+			<option value="1255" title="Mr. Mahendra Govind Gadge">Mr. Mahendra Govind Gadge</option>
+			<option value="921" title="Mr. Mahesh Shamrao Kurulekar">Mr. Mahesh Shamrao Kurulekar</option>
+			<option value="1423" title="Mr. Manoj Narsing Jagdale">Mr. Manoj Narsing Jagdale</option>
+			<option value="1544" title="Mr. Milind Chandrakant Hingonekar">Mr. Milind Chandrakant Hingonekar</option>
+			<option value="1576" title="Mr. Monu Bathyal ">Mr. Monu Bathyal </option>
+			<option value="1511" title="Mr. Mukund Ramdas Kharde">Mr. Mukund Ramdas Kharde</option>
+			<option value="1418" title="Mr. Nitin Nandkumar Sakhare">Mr. Nitin Nandkumar Sakhare</option>
+			<option value="1465" title="Mr. Nitin Tukaram Sawalkar">Mr. Nitin Tukaram Sawalkar</option>
+			<option value="1122" title="Mr. Pandurang Ganpat Chavan">Mr. Pandurang Ganpat Chavan</option>
+			<option value="1530" title="Mr. Pradeep Dnyanadev Khaire">Mr. Pradeep Dnyanadev Khaire</option>
+			<option value="1505" title="Mr. Prasad Prashant Kharade">Mr. Prasad Prashant Kharade</option>
+			<option value="3906944438001354310" title="Mr. Prateek Londhe">Mr. Prateek Londhe</option>
+			<option value="1590" title="Mr. Pratik Madan Wakchaure">Mr. Pratik Madan Wakchaure</option>
+			<option value="1537" title="Mr. Praveen Vasant Khandare">Mr. Praveen Vasant Khandare</option>
+			<option value="1539" title="Mr. Raghunandan Rangappa Koppad">Mr. Raghunandan Rangappa Koppad</option>
+			<option value="1568" title="Mr. Rahul Haribhau Sawant">Mr. Rahul Haribhau Sawant</option>
+			<option value="1508" title="Mr. Sandeep Sharadchandra Katrekar">Mr. Sandeep Sharadchandra Katrekar</option>
+			<option value="1595" title="Mr. Sanjay Dhanagonda Patil">Mr. Sanjay Dhanagonda Patil</option>
+			<option value="942" title="Mr. Sharad Vitthal Gaikwad">Mr. Sharad Vitthal Gaikwad</option>
+			<option value="1545" title="Mr. Srinivas Subhash Chippalkattti">Mr. Srinivas Subhash Chippalkattti</option>
+			<option value="4915169104508301892" title="Mr. Umesh Mane">Mr. Umesh Mane</option>
+			<option value="1521" title="Mr. Vijay Mahadev Marathe">Mr. Vijay Mahadev Marathe</option>
+			<option value="1460" title="Mr. Vikas Kanifnath Kolekar">Mr. Vikas Kanifnath Kolekar</option>
+			<option value="913" title="Mr. Vishwesh Raghunath Deshmukh">Mr. Vishwesh Raghunath Deshmukh</option>
+			<option value="1550" title="Mr. Vivek Ghanshyam Ghule">Mr. Vivek Ghanshyam Ghule</option>
+			<option value="4919672626524795972" title="Mr. Xyz Pqr Lmn">Mr. Xyz Pqr Lmn</option>
+			<option value="903" title="Mrs. Aparna Parag Kulkarni">Mrs. Aparna Parag Kulkarni</option>
+			<option value="1543" title="Mrs. Aparna Vithal Sagade">Mrs. Aparna Vithal Sagade</option>
+			<option value="905" title="Mrs. Archana Sunil Ghule">Mrs. Archana Sunil Ghule</option>
+			<option value="1166" title="Mrs. Bilavari Shrirang Karkare">Mrs. Bilavari Shrirang Karkare</option>
+			<option value="1518" title="Mrs. Devika Ajay Verma">Mrs. Devika Ajay Verma</option>
+			<option value="1326" title="Mrs. Dipti Pratik Pandit">Mrs. Dipti Pratik Pandit</option>
+			<option value="1257" title="Mrs. Disha Sushant Wankhede">Mrs. Disha Sushant Wankhede</option>
+			<option value="1536" title="Mrs. Geetha Rajesh Chillal">Mrs. Geetha Rajesh Chillal</option>
+			<option value="1167" title="Mrs. Kalpana Ashok Kumbhar">Mrs. Kalpana Ashok Kumbhar</option>
+			<option value="1259" title="Mrs. Ketki Prashant Kshirsagar">Mrs. Ketki Prashant Kshirsagar</option>
+			<option value="1558" title="Mrs. Madhavi Abhijit Mohite">Mrs. Madhavi Abhijit Mohite</option>
+			<option value="1509" title="Mrs. Manohari Prabhakar Kulkarni">Mrs. Manohari Prabhakar Kulkarni</option>
+			<option value="1519" title="Mrs. Namrata Gajanan Kharate">Mrs. Namrata Gajanan Kharate</option>
+			<option value="1501" title="Mrs. Neha Neeraj Deshpande">Mrs. Neha Neeraj Deshpande</option>
+			<option value="1504" title="Mrs. Nivedita Satyajeet Bhirud">Mrs. Nivedita Satyajeet Bhirud</option>
+			<option value="4914897477557303604" title="Mrs. Pareenita Masurkar">Mrs. Pareenita Masurkar</option>
+			<option value="1420" title="Mrs. Praveen Pomu Rathod">Mrs. Praveen Pomu Rathod</option>
+			<option value="1560" title="Mrs. Preeti Milind Namjoshi">Mrs. Preeti Milind Namjoshi</option>
+			<option value="1502" title="Mrs. Purva Suhas Bhise">Mrs. Purva Suhas Bhise</option>
+			<option value="1555" title="Mrs. Ramkrishnan Balasubramaniam Kasyap">Mrs. Ramkrishnan Balasubramaniam Kasyap</option>
+			<option value="1500" title="Mrs. Ritoo Anshuman Sumbli">Mrs. Ritoo Anshuman Sumbli</option>
+			<option value="1067" title="Mrs. Rohini Abhijit Chavan">Mrs. Rohini Abhijit Chavan</option>
+			<option value="1571" title="Mrs. Rucha Uday Palkhe">Mrs. Rucha Uday Palkhe</option>
+			<option value="1559" title="Mrs. Sharada Jayant Wani">Mrs. Sharada Jayant Wani</option>
+			<option value="1088" title="Mrs. Sharada Yogesh Desai">Mrs. Sharada Yogesh Desai</option>
+			<option value="1004" title="Mrs. Shruti Laxmikant Gore">Mrs. Shruti Laxmikant Gore</option>
+			<option value="1574" title="Mrs. Sulakshana Vijay Athare">Mrs. Sulakshana Vijay Athare</option>
+			<option value="1512" title="Mrs. Sushma Dattatraya Hojage">Mrs. Sushma Dattatraya Hojage</option>
+			<option value="1260" title="Mrs. Swapnita Ramrao Dhabre">Mrs. Swapnita Ramrao Dhabre</option>
+			<option value="1577" title="Mrs. Swati Ajit Deshpande">Mrs. Swati Ajit Deshpande</option>
+			<option value="1579" title="Mrs. Vaishali Abasaheb Ubale">Mrs. Vaishali Abasaheb Ubale</option>
+			<option value="1506" title="Mrs. Vidya Tushar Pokale">Mrs. Vidya Tushar Pokale</option>
+			<option value="1191" title="Mrs. Vrishali Mukund Kuvar">Mrs. Vrishali Mukund Kuvar</option>
+			<option value="996" title="Prof. Aarti Vasant Bang">Prof. Aarti Vasant Bang</option>
+			<option value="1077" title="Prof. Abhijeet Rajeshwarrao Deshpande">Prof. Abhijeet Rajeshwarrao Deshpande</option>
+			<option value="1039" title="Prof. Abhijit Vasant Pendse">Prof. Abhijit Vasant Pendse</option>
+			<option value="1081" title="Prof. Abhijit Vijaykumar Chitre">Prof. Abhijit Vijaykumar Chitre</option>
+			<option value="927" title="Prof. Ajay Dattatray Kale">Prof. Ajay Dattatray Kale</option>
+			<option value="979" title="Prof. Akshay Ashok Manikjade">Prof. Akshay Ashok Manikjade</option>
+			<option value="1083" title="Prof. Aniket Vinayak Salve">Prof. Aniket Vinayak Salve</option>
+			<option value="1065" title="Prof. Anup Wasudevrao Ingle">Prof. Anup Wasudevrao Ingle</option>
+			<option value="1120" title="Prof. Aparna Balaji Barbadekar">Prof. Aparna Balaji Barbadekar</option>
+			<option value="1066" title="Prof. Archana Kshitij Ratnaparkhi">Prof. Archana Kshitij Ratnaparkhi</option>
+			<option value="1112" title="Prof. Ashwini Pravin Navghane">Prof. Ashwini Pravin Navghane</option>
+			<option value="906" title="Prof. Ashwini Pravin Thakare">Prof. Ashwini Pravin Thakare</option>
+			<option value="1078" title="Prof. Avinash Abhiman  Somatkar">Prof. Avinash Abhiman  Somatkar</option>
+			<option value="1553" title="Prof. Babarao Sitaram Rathod">Prof. Babarao Sitaram Rathod</option>
+			<option value="938" title="Prof. Chandrashekhar Ramesh Ramtirthkar">Prof. Chandrashekhar Ramesh Ramtirthkar</option>
+			<option value="1057" title="Prof. Dattatraya Babanrao Nalawade">Prof. Dattatraya Babanrao Nalawade</option>
+			<option value="937" title="Prof. Fatima Mohin Inamdar">Prof. Fatima Mohin Inamdar</option>
+			<option value="1116" title="Prof. Gajanan Himmatrao Chavhan">Prof. Gajanan Himmatrao Chavhan</option>
+			<option value="1090" title="Prof. Gauri Vaijukumar Ghule">Prof. Gauri Vaijukumar Ghule</option>
+			<option value="1058" title="Prof. Harshada Vilas Velhal">Prof. Harshada Vilas Velhal</option>
+			<option value="908" title="Prof. Himani Venkatesh Deshpande">Prof. Himani Venkatesh Deshpande</option>
+			<option value="916" title="Prof. Jayashree Pradip Tamkhade">Prof. Jayashree Pradip Tamkhade</option>
+			<option value="1029" title="Prof. Jayashree Vithalrao Bagade">Prof. Jayashree Vithalrao Bagade</option>
+			<option value="1137" title="Prof. Jayshri Nitin Joshi">Prof. Jayshri Nitin Joshi</option>
+			<option value="1125" title="Prof. Ketan Janraoji Raut">Prof. Ketan Janraoji Raut</option>
+			<option value="986" title="Prof. Kirti Hemant Wanjale">Prof. Kirti Hemant Wanjale</option>
+			<option value="1042" title="Prof. Lahu Anand Kamble">Prof. Lahu Anand Kamble</option>
+			<option value="988" title="Prof. Laxmi Anand Bewoor">Prof. Laxmi Anand Bewoor</option>
+			<option value="987" title="Prof. Leena Amit Deshpande">Prof. Leena Amit Deshpande</option>
+			<option value="1130" title="Prof. Madhuri Mahadev Chavan">Prof. Madhuri Mahadev Chavan</option>
+			<option value="983" title="Prof. Manisha Pravin Mali">Prof. Manisha Pravin Mali</option>
+			<option value="1008" title="Prof. Mayuresh Vijay Bakshi">Prof. Mayuresh Vijay Bakshi</option>
+			<option value="1127" title="Prof. Milind Sahebrao Patil">Prof. Milind Sahebrao Patil</option>
+			<option value="1117" title="Prof. Minal Samir Deshmukh">Prof. Minal Samir Deshmukh</option>
+			<option value="1061" title="Prof. Naren Bhimrao Kate">Prof. Naren Bhimrao Kate</option>
+			<option value="1242" title="Prof. Narendra Prabhakar Pathak">Prof. Narendra Prabhakar Pathak</option>
+			<option value="926" title="Prof. Nitin Hiraman Ambhore">Prof. Nitin Hiraman Ambhore</option>
+			<option value="1113" title="Prof. Pallavi Devendra Deshpande">Prof. Pallavi Devendra Deshpande</option>
+			<option value="1100" title="Prof. Pallavi Ravindra Rege">Prof. Pallavi Ravindra Rege</option>
+			<option value="1043" title="Prof. Pawan Subhash Wawage">Prof. Pawan Subhash Wawage</option>
+			<option value="919" title="Prof. Piyush Kiranrao Mathurkar">Prof. Piyush Kiranrao Mathurkar</option>
+			<option value="990" title="Prof. Pradnya Rajendra Dixit">Prof. Pradnya Rajendra Dixit</option>
+			<option value="1495" title="Prof. Pranali Gajanan Chavhan">Prof. Pranali Gajanan Chavhan</option>
+			<option value="1294" title="Prof. Prasannkumar Prakash Patil">Prof. Prasannkumar Prakash Patil</option>
+			<option value="1059" title="Prof. Prashant Ramchandra Anerao">Prof. Prashant Ramchandra Anerao</option>
+			<option value="1109" title="Prof. Pravin Ganpatrao Gawande">Prof. Pravin Ganpatrao Gawande</option>
+			<option value="1036" title="Prof. Priya Makarand Shelke">Prof. Priya Makarand Shelke</option>
+			<option value="1106" title="Prof. Priyanka Dhananjay More">Prof. Priyanka Dhananjay More</option>
+			<option value="1073" title="Prof. Radhika Girish Purandare">Prof. Radhika Girish Purandare</option>
+			<option value="1003" title="Prof. Rahul Ashok Joshi">Prof. Rahul Ashok Joshi</option>
+			<option value="1086" title="Prof. Rahul Shivaji Pol">Prof. Rahul Shivaji Pol</option>
+			<option value="1103" title="Prof. Rajendra Shankar Talware">Prof. Rajendra Shankar Talware</option>
+			<option value="920" title="Prof. Ramchandra Suresh Apte">Prof. Ramchandra Suresh Apte</option>
+			<option value="1128" title="Prof. Ratnmala Nivrattirao Bhimanpallewar">Prof. Ratnmala Nivrattirao Bhimanpallewar</option>
+			<option value="1140" title="Prof. Rupa Subhash Sonagi">Prof. Rupa Subhash Sonagi</option>
+			<option value="1056" title="Prof. Sampada Viraj Dravid">Prof. Sampada Viraj Dravid</option>
+			<option value="1038" title="Prof. Saroja Mangesh Kulkarni">Prof. Saroja Mangesh Kulkarni</option>
+			<option value="1072" title="Prof. Shailesh Janardan Thaware">Prof. Shailesh Janardan Thaware</option>
+			<option value="1099" title="Prof. Shailesh Vasudeo Kulkarni">Prof. Shailesh Vasudeo Kulkarni</option>
+			<option value="1154" title="Prof. Sheetal Ajay Sahare">Prof. Sheetal Ajay Sahare</option>
+			<option value="1104" title="Prof. Shraddha Kiran Habbu">Prof. Shraddha Kiran Habbu</option>
+			<option value="1076" title="Prof. Shrikant Shankar Joshi">Prof. Shrikant Shankar Joshi</option>
+			<option value="1157" title="Prof. Shrikant Tanaji Shinde">Prof. Shrikant Tanaji Shinde</option>
+			<option value="1110" title="Prof. Shweta Aditya Tiwaskar">Prof. Shweta Aditya Tiwaskar</option>
+			<option value="1062" title="Prof. Smita Hanmant  Bhagwat">Prof. Smita Hanmant  Bhagwat</option>
+			<option value="1119" title="Prof. Snehal Rahul Rathi">Prof. Snehal Rahul Rathi</option>
+			<option value="1135" title="Prof. Sonali Prakash Botkar">Prof. Sonali Prakash Botkar</option>
+			<option value="1085" title="Prof. Subhash Bhalu Tatale">Prof. Subhash Bhalu Tatale</option>
+			<option value="1044" title="Prof. Suruchi Gaurav Dedgaonkar">Prof. Suruchi Gaurav Dedgaonkar</option>
+			<option value="1041" title="Prof. Swati Bula Patil">Prof. Swati Bula Patil</option>
+			<option value="1082" title="Prof. Tushar Ramhari Jadhav">Prof. Tushar Ramhari Jadhav</option>
+			<option value="1114" title="Prof. Vaishali Ashutosh Mishra">Prof. Vaishali Ashutosh Mishra</option>
+			<option value="1121" title="Prof. Vidula Vishal Meshram">Prof. Vidula Vishal Meshram</option>
+			<option value="1124" title="Prof. Vidya Shrimant Gaikwad">Prof. Vidya Shrimant Gaikwad</option>
+			<option value="915" title="Prof. Vijaya Navnath Aher">Prof. Vijaya Navnath Aher</option>
+			<option value="1115" title="Prof. Vishal Ambadas Meshram">Prof. Vishal Ambadas Meshram</option>
+			<option value="1139" title="Prof. Vishal Bhaskarrao Ambhore">Prof. Vishal Bhaskarrao Ambhore</option>
+			<option value="1079" title="Prof. Vivek Maruti Aranake">Prof. Vivek Maruti Aranake</option>
+			<option value="1102" title="Prof. Yashwant Vinayak Dongre">Prof. Yashwant Vinayak Dongre</option>
+			<option value="1071" title="Prof. Yogesh Kantilal Sharma">Prof. Yogesh Kantilal Sharma</option>
+			<option value="1020" title="Smt. Priya Uday Belhekar">Smt. Priya Uday Belhekar</option>
+
+		</select>
