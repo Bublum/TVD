@@ -56,6 +56,7 @@ class VehicleDetection(models.Model):
     camera = models.ForeignKey(CameraMaster, on_delete=models.CASCADE)
     image = models.FileField()
     is_processed = models.BooleanField(default=False)
+    original_frame = models.CharField(max_length=5000, default='')
 
     def __str__(self):
         return str(type) + str(self.camera)
@@ -96,6 +97,7 @@ class VehicleMonitor(models.Model):
     # address = models.CharField(max_length=250, default='test')
     # vehicle_type = models.ForeignKey(VehicleTypeMaster, on_delete=models.CASCADE)
     image = models.FileField(max_length=1000, upload_to=vehicle_monitor_directory)
+
     # is_done = models.BooleanField(default=False)
 
     def __str__(self):
