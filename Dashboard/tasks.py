@@ -15,7 +15,7 @@ from django.core.files.images import ImageFile
 from django.forms import FileField
 
 from Dashboard.config import maximum_classes_to_detect, min_score_thresh, categories_to_detect, dps
-from Dashboard.models import Model, Input, VehicleTypeMaster, VehicleDetection, NumberPlateDetection
+from Dashboard.models import Model, Input, VehicleTypeMaster, VehicleDetection, NumberPlateDetection, CameraMaster
 from TVD import settings
 from object_detection.functions import count_frames_manual, load_image_into_numpy_array
 from object_detection.ops import reframe_box_masks_to_image_masks
@@ -39,7 +39,11 @@ def load_graph(model_path):
 @app.task
 def vehicle_detection(id):
     detection_obj = Model.objects.get(model_type='Vehicle', is_active=True)
-    save_dir = os.path.join(os.path.join(settings.MEDIA_ROOT, id), 'Vehicles')
+    save_dir = os.path.join(os.path.join(settings.MEDIA_ROOT, str(id)), 'Vehicles')
+    if not os.path.exists(save_dir):
+        os.makedirs(save_dir)
+    # os.makedirs(os.path.join(settings.MEDIA_ROOT, str(id)))
+    # os.makedirs(save_dir)
     model_path = detection_obj.model.path
     input_obj = Input.objects.get(pk=int(id))
     model_label = detection_obj.label.path
@@ -69,7 +73,8 @@ def vehicle_detection(id):
                 print(each_frame)
                 rev, image_np = cap.read()
                 frame_name = 'original_frame_' + str(each_frame)
-                image_np.save(os.path.join(save_dir, frame_name))
+                frame_image = Image.fromarray(image_np, 'RGB')
+                frame_image.save(os.path.join(save_dir, frame_name) + '.png')
 
                 # img.save('my.png')
                 # img.show()
@@ -148,8 +153,10 @@ def vehicle_detection(id):
                             # im.show()
                             img = Image.fromarray(cropped_img, 'RGB')
                             image_name = str(each_frame) + '_' + str(i) + '.png'
-                            img.save(image_name)
-                            v = VehicleDetection(vehicle_type=class_obj, original_frame=os.path.join(save_dir,frame_name))
+                            img.save(os.path.join(save_dir, image_name))
+                            v = VehicleDetection(vehicle_type=class_obj,
+                                                 original_frame=os.path.join(save_dir, frame_name),
+                                                 camera=CameraMaster.objects.all()[0])
                             v.image.save(image_name, File(open(image_name, 'rb')))
                             v.save()
                 cap.set(1, each_frame * dps)
@@ -160,12 +167,12 @@ def vehicle_detection(id):
 
 
 @app.task
-def number_plate_detection():
+def number_plate_detection(id):
     detection_obj = Model.objects.get(model_type='number_plate', is_active=True)
     model_path = detection_obj.model.path
     detection_graph = load_graph(model_path)
 
-    all_input = VehicleDetection.objects.filter(is_processed=False)
+    all_input = VehicleDetection.objects.get(pk=id)
     model_label = detection_obj.label.path
 
     with detection_graph.as_default():

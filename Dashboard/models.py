@@ -1,5 +1,7 @@
 from django.db import models
 
+from Dashboard.tasks import vehicle_detection, number_plate_detection
+
 
 def vehicle_detection_directory(instance, filename):
     return 'Vehicle/{0}/{1}.png'.format(instance.vehicle_type.type, filename)
@@ -65,6 +67,11 @@ class VehicleDetection(models.Model):
     def __str__(self):
         return str(type) + str(self.camera)
 
+    # def save(self, force_insert=False, force_update=False, using=None,
+    #          update_fields=None):
+    #     self.save()
+    #     number_plate_detection()
+
 
 class NumberPlate(models.Model):
     number = models.CharField(max_length=15)
@@ -92,6 +99,11 @@ class Input(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.save()
+        vehicle_detection.apply_async(args=[str(self.pk)], queue='vehicle_detection')
 
 
 class VehicleMonitor(models.Model):
