@@ -108,7 +108,6 @@ class VehicleMonitor(models.Model):
         return str(self.number_detection)
 
 
-
 # class ViolationDetection(models.Model):
 #     detection = models.ForeignKey(Detection, on_delete=models.CASCADE)
 #     violation = models.ForeignKey(ViolationMaster, on_delete=models.CASCADE)
