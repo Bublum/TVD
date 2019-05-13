@@ -18,8 +18,15 @@ from django.conf.urls import url, include
 from Dashboard import views
 from django.conf.urls.static import static
 from django.conf import settings
+from Dashboard.tasks import vehicle_detection
+
+from Dashboard.models import Input
 
 urlpatterns = [
                   url('admin/', admin.site.urls),
                   url('', include('Dashboard.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+all_input = Input.objects.filter(is_processed=False)
+for each_input in all_input:
+    vehicle_detection.apply_async(args=[str(each_input.pk)], queue='vehicle_detection')
