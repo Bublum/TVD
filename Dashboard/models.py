@@ -1,6 +1,5 @@
 from django.db import models
 
-from Dashboard.tasks import vehicle_detection, number_plate_detection, helmet_detection
 
 
 def vehicle_detection_directory(instance, filename):
@@ -70,8 +69,10 @@ class VehicleDetection(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.save()
+        from Dashboard.tasks import number_plate_detection
         monitor_obj_id = number_plate_detection(self.pk)
         if self.vehicle_type.type == 'motorcycle':
+            from Dashboard.tasks import helmet_detection
             helmet_detection(self.pk, monitor_obj_id)
 
 
@@ -105,6 +106,7 @@ class Input(models.Model):
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.save()
+        from Dashboard.tasks import vehicle_detection
         vehicle_detection.apply_async(args=[str(self.pk)], queue='vehicle_detection')
 
 
