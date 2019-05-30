@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 def vehicle_detection_directory(instance, filename):
@@ -66,15 +67,17 @@ class VehicleDetection(models.Model):
     def __str__(self):
         return str(type) + str(self.camera)
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        self.save()
+    def call_helmet_detection(self):
+        # self.save()
         from Dashboard.tasks import number_plate_detection
         monitor_obj_id = number_plate_detection(self.pk)
         if self.vehicle_type.type == 'motorcycle':
             from Dashboard.tasks import helmet_detection
             helmet_detection(self.pk, monitor_obj_id)
+def vehicle_detection_saved(sender, instance, *args, **kwargs):
+    instance.call_helmet_detection()
 
+post_save.connect(vehicle_detection_saved, sender=VehicleDetection)
 
 class NumberPlate(models.Model):
     number = models.CharField(max_length=15)
@@ -84,7 +87,7 @@ class NumberPlate(models.Model):
 
 
 class NumberPlateDetection(models.Model):
-    # number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE)
+    number_plate = models.ForeignKey(NumberPlate, on_delete=models.CASCADE, null=True)
     image = models.FileField(upload_to=number_plate_directory, max_length=1000)
     vehicle_detection = models.ForeignKey(VehicleDetection, on_delete=models.CASCADE)
 
@@ -103,12 +106,16 @@ class Input(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, force_insert=False, force_update=False, using=None,
-             update_fields=None):
-        self.save()
+    def call_vehicle_detection(self):
         from Dashboard.tasks import vehicle_detection
-        vehicle_detection.apply_async(args=[str(self.pk)], queue='vehicle_detection')
+        # vehicle_detection.apply_async(args=[str(self.pk)], queue='vehicle_detection')
+        print(self.pk)
+        vehicle_detection(str(self.pk))
 
+def input_saved(sender, instance, *args, **kwargs):
+    instance.call_vehicle_detection()
+
+post_save.connect(input_saved, sender=Input)
 
 class VehicleMonitor(models.Model):
     number_detection = models.ForeignKey(NumberPlateDetection, on_delete=models.CASCADE)

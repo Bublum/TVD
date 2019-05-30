@@ -38,7 +38,7 @@ def load_graph(model_path):
     return detection_graph
 
 
-@app.task
+# @app.task
 def vehicle_detection(id):
     detection_obj = Model.objects.get(model_type='Vehicle', is_active=True)
     save_dir = os.path.join(os.path.join(settings.MEDIA_ROOT, str(id)), 'Vehicles')
@@ -174,6 +174,7 @@ def number_plate_detection(id):
     model_path = detection_obj.model.path
     detection_graph = load_graph(model_path)
 
+    monitor_obj = None
     input = VehicleDetection.objects.get(pk=id)
     model_label = detection_obj.label.path
 

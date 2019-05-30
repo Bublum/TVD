@@ -29,4 +29,5 @@ urlpatterns = [
 
 all_input = Input.objects.filter(is_processed=False)
 for each_input in all_input:
-    vehicle_detection.apply_async(args=[str(each_input.pk)], queue='vehicle_detection')
+    # vehicle_detection.apply_async(args=[str(each_input.pk)], queue='vehicle_detection')
+    vehicle_detection(str(each_input.pk))
